@@ -14,7 +14,7 @@ class ProductRepositoryImpl(val remoteDataSource: RemoteDataSource): ProductRepo
     }
 
     override fun logout() {
-        TODO("Not yet implemented")
+        remoteDataSource.firebaseAuth().signOut()
     }
 
 }
