@@ -18,13 +18,13 @@ class ProductRepositoryImpl(val remoteDataSource: RemoteDataSource) : ProductRep
     override suspend fun isAnonymous(): Boolean {
         return suspendCoroutine { continuation ->
             continuation.resume(
-                remoteDataSource.firebaseAuth().currentUser?.isAnonymous ?: true
+                remoteDataSource.firebaseAuth.currentUser?.isAnonymous ?: true
             )
         }
     }
 
     override fun logout() {
-        remoteDataSource.firebaseAuth().signOut()
+        remoteDataSource.firebaseAuth.signOut()
     }
 
 }

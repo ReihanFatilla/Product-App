@@ -8,13 +8,9 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import io.reactivex.rxjava3.core.Flowable
 
-class RemoteDataSource(val apiService: ApiService) {
+class RemoteDataSource(val apiService: ApiService, val firebaseAuth: FirebaseAuth) {
     fun getProductsByCategory(category: Product.Category): Flowable<ProductResponse> {
         val params = category.name.replace("_", "-")
         return apiService.getProductsByCategory(category = params)
-    }
-
-    fun firebaseAuth(): FirebaseAuth{
-        return Firebase.auth
     }
 }

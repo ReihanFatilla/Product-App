@@ -10,7 +10,7 @@ import kotlin.coroutines.suspendCoroutine
 
 class AuthRepositoryImpl(val remoteDataSource: RemoteDataSource): AuthRepository {
 
-    val auth = remoteDataSource.firebaseAuth()
+    val auth = remoteDataSource.firebaseAuth
     override suspend fun login(type: AuthType): AuthResult {
         return when(type){
             is AuthType.Anonymous -> {
