@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Product App"
 include(":app")
- 
+include(":core")
