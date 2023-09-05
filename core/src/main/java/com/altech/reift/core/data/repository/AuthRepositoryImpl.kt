@@ -18,7 +18,7 @@ class AuthRepositoryImpl(val remoteDataSource: RemoteDataSource): AuthRepository
                 suspendCoroutine { continuation ->
                     auth.signInAnonymously()
                         .addOnSuccessListener {
-                            continuation.resume(AuthResult(true, "Success Signing In"))
+                            continuation.resume(AuthResult(true, "You're a Guest"))
                         }
                         .addOnFailureListener { exception ->
                             continuation.resume(AuthResult(false, exception.message))
@@ -43,6 +43,32 @@ class AuthRepositoryImpl(val remoteDataSource: RemoteDataSource): AuthRepository
     }
 
     override suspend fun register(type: AuthType): AuthResult {
-        TODO("Not yet implemented")
+        return when(type){
+            is AuthType.Anonymous -> {
+                suspendCoroutine { continuation ->
+                    auth.signInAnonymously()
+                        .addOnSuccessListener {
+                            continuation.resume(AuthResult(true, "You're a Guest"))
+                        }
+                        .addOnFailureListener { exception ->
+                            continuation.resume(AuthResult(false, exception.message))
+                        }
+                }
+            }
+            is AuthType.Custom -> {
+                suspendCoroutine { continuation ->
+                    auth.createUserWithEmailAndPassword(type.email, type.password)
+                        .addOnSuccessListener {
+                            continuation.resume(AuthResult(true, "Success Signed Up"))
+                        }
+                        .addOnFailureListener { exception ->
+                            continuation.resume(AuthResult(false, exception.message))
+                        }
+                }
+            }
+            is AuthType.Google -> {
+                AuthResult(success = false, message = null)
+            }
+        }
     }
 }
