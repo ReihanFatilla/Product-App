@@ -4,7 +4,6 @@ import com.altech.reift.core.data.remote.RemoteDataSource
 import com.altech.reift.core.domain.model.AuthResult
 import com.altech.reift.core.domain.repository.AuthRepository
 import com.altech.reift.core.utils.AuthType
-import kotlinx.coroutines.tasks.await
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
