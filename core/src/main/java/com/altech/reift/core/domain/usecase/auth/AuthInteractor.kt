@@ -1,14 +1,16 @@
 package com.altech.reift.core.domain.usecase.auth
 
+import com.altech.reift.core.domain.model.AuthResult
+import com.altech.reift.core.domain.repository.AuthRepository
 import com.altech.reift.core.domain.repository.ProductRepository
 import com.altech.reift.core.utils.AuthType
 
-class AuthInteractor(val authRepository: ProductRepository): AuthUseCase {
-    override fun login(type: AuthType) {
-        TODO("Not yet implemented")
+class AuthInteractor(val authRepository: AuthRepository): AuthUseCase {
+    override suspend fun login(type: AuthType): AuthResult{
+        return authRepository.login(type)
     }
 
-    override fun register(type: AuthType) {
-        TODO("Not yet implemented")
+    override suspend fun register(type: AuthType): AuthResult{
+        return authRepository.register(type)
     }
 }
