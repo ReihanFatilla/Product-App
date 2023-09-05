@@ -1,4 +1,4 @@
-package com.altech.reift.core.data.network.response
+package com.altech.reift.core.data.remote.response
 
 import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
@@ -6,7 +6,6 @@ import com.google.gson.annotations.SerializedName
 
 @Parcelize
 data class ProductsItem(
-
 	@field:SerializedName("discountPercentage")
 	val discountPercentage: Double? = null,
 

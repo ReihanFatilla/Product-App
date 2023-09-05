@@ -13,7 +13,6 @@ data class Product(
     val title: String,
     val stock: Int,
     val category: String,
-    val brand: String,
 ) {
     enum class Category {
         SMARTPHONES,
