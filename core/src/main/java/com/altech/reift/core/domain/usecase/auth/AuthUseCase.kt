@@ -6,4 +6,5 @@ import com.altech.reift.core.utils.AuthType
 interface AuthUseCase {
     suspend fun login(type: AuthType): AuthResult
     suspend fun register(type: AuthType): AuthResult
+    fun isAnonymous(): Boolean
 }

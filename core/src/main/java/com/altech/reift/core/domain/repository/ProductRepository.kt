@@ -5,7 +5,6 @@ import io.reactivex.rxjava3.core.Flowable
 
 interface ProductRepository {
     fun getProducts(category: Product.Category): Flowable<List<Product>>
-    suspend fun isAnonymous(): Boolean
-
+    fun isAnonymous(): Boolean
     fun logout()
 }

@@ -9,7 +9,7 @@ class ProductInteractor(val productRepository: ProductRepository): ProductUseCas
         return productRepository.getProducts(category)
     }
 
-    override suspend fun isAnonymous(): Boolean {
+    override fun isAnonymous(): Boolean {
         return productRepository.isAnonymous()
     }
 

@@ -70,4 +70,8 @@ class AuthRepositoryImpl(val remoteDataSource: RemoteDataSource): AuthRepository
             }
         }
     }
+
+    override fun isAnonymous(): Boolean {
+        return remoteDataSource.firebaseAuth.currentUser?.isAnonymous ?: true
+    }
 }

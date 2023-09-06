@@ -13,4 +13,8 @@ class AuthInteractor(val authRepository: AuthRepository): AuthUseCase {
     override suspend fun register(type: AuthType): AuthResult{
         return authRepository.register(type)
     }
+
+    override fun isAnonymous(): Boolean {
+        return authRepository.isAnonymous()
+    }
 }

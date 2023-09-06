@@ -4,6 +4,7 @@ import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Product(
     val discountPercentage: Double,
     val thumbnail: String,
@@ -15,7 +16,7 @@ data class Product(
     val title: String,
     val stock: Int,
     val category: String,
-) {
+): Parcelable {
     @Parcelize
     enum class Category: Parcelable {
         SMARTPHONES,

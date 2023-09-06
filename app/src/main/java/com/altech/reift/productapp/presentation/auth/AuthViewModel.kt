@@ -23,4 +23,8 @@ class AuthViewModel(val authUseCase: AuthUseCase) : ViewModel() {
             authResultLiveData.postValue(authUseCase.register(type))
         }
     }
+
+    fun isAnonymous(): Boolean {
+        return authUseCase.isAnonymous()
+    }
 }

@@ -25,8 +25,16 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        checkSession()
         authResultObserver()
         setUpView()
+    }
+
+    private fun checkSession() {
+        if(!viewModel.isAnonymous()){
+            startActivity(Intent(this, MainActivity::class.java))
+        }
     }
 
     private fun authResultObserver() {
