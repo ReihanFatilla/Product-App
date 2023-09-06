@@ -8,7 +8,7 @@ import com.altech.reift.productapp.databinding.ItemProductBinding
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 
-class ProductRVAdapter: RecyclerView.Adapter<ProductRVAdapter.ProductViewHolder>() {
+class ProductRVAdapter(val onItemClick: (Product) -> Unit): RecyclerView.Adapter<ProductRVAdapter.ProductViewHolder>() {
 
     var listProduct = arrayListOf<Product>();
 
@@ -35,6 +35,9 @@ class ProductRVAdapter: RecyclerView.Adapter<ProductRVAdapter.ProductViewHolder>
                     .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
                     .into(imgProduct)
             }
+        }
+        holder.itemView.setOnClickListener {
+            onItemClick(listProduct[position])
         }
     }
 }

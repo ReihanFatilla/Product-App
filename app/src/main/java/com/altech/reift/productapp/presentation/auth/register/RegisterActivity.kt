@@ -4,13 +4,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.altech.reift.productapp.R
 import com.altech.reift.productapp.databinding.ActivityMainBinding
+import com.altech.reift.productapp.databinding.ActivityRegisterBinding
 
 class RegisterActivity : AppCompatActivity() {
-    private var _binding: ActivityMainBinding? = null
-    private val binding get() = _binding as ActivityMainBinding
+
+    private var _binding: ActivityRegisterBinding? = null
+
+    private val binding get() = _binding as ActivityRegisterBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _binding = ActivityMainBinding.inflate(layoutInflater)
+        _binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 

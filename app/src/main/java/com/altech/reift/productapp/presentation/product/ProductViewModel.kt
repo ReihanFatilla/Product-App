@@ -10,6 +10,13 @@ class ProductViewModel(val productUseCase: ProductUseCase): ViewModel() {
 
     val productsLiveData = MediatorLiveData<List<Product>>()
 
+    fun logout() {
+        productUseCase.logout()
+    }
+    suspend fun isAnonymous(): Boolean {
+        return productUseCase.isAnonymous()
+    }
+
     fun getProducts(category: Product.Category){
         val source = LiveDataReactiveStreams.fromPublisher(
             productUseCase.getProducts(category)

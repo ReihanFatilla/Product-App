@@ -3,16 +3,18 @@ package com.altech.reift.productapp.presentation.auth.login
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.altech.reift.productapp.R
+import com.altech.reift.productapp.databinding.ActivityLoginBinding
 import com.altech.reift.productapp.databinding.ActivityMainBinding
 
 class LoginActivity : AppCompatActivity() {
 
-    private var _binding: ActivityMainBinding? = null
-    private val binding get() = _binding as ActivityMainBinding
+    private var _binding: ActivityLoginBinding? = null
+
+    private val binding get() = _binding as ActivityLoginBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
-        _binding = ActivityMainBinding.inflate(layoutInflater)
+        _binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 
