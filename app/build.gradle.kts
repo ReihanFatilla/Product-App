@@ -69,4 +69,7 @@ dependencies {
 
     // LiveData ReactiveStreams
     implementation("androidx.lifecycle:lifecycle-reactivestreams-ktx:2.5.1")
+
+    // Work Manager
+    implementation("androidx.work:work-runtime-ktx:2.7.1")
 }
