@@ -55,4 +55,7 @@ dependencies {
     implementation("org.koin:koin-core:2.1.6")
     implementation("org.koin:koin-android:2.1.6")
     implementation("org.koin:koin-android-viewmodel:2.1.6")
+
+    // Glide
+    implementation("com.github.bumptech.glide:glide:4.14.2")
 }

@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.altech.reift.core.domain.model.Product
 import com.altech.reift.core.utils.Utils.toWordCase
-import com.altech.reift.productapp.adapter.ViewPagerAdapter
+import com.altech.reift.productapp.adapter.ProductVPAdapter
 import com.altech.reift.productapp.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpViewPager() {
         binding.apply {
-            vpProduct.adapter = ViewPagerAdapter(this@MainActivity)
+            vpProduct.adapter = ProductVPAdapter(this@MainActivity)
             TabLayoutMediator(tabProduct, vpProduct){ tab, position ->
                 tab.text = Product.Category.values()[position].name.toWordCase()
             }.attach()

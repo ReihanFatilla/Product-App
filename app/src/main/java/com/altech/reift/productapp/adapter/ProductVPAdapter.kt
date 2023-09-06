@@ -7,7 +7,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.altech.reift.core.domain.model.Product
 import com.altech.reift.core.utils.Utils.toWordCase
 
-class ViewPagerAdapter(
+class ProductVPAdapter(
     fa: FragmentActivity
 ):FragmentStateAdapter(fa) {
 
