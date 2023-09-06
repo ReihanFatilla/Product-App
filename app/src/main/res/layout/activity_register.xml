@@ -20,7 +20,7 @@
         android:textSize="24sp" />
 
     <EditText
-        android:id="@+id/editTextEmail"
+        android:id="@+id/edt_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -30,7 +30,7 @@
         android:inputType="textEmailAddress" />
 
     <EditText
-        android:id="@+id/editTextPassword"
+        android:id="@+id/edt_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -40,11 +40,11 @@
         android:inputType="textPassword" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_register"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
-        android:text="Login"
+        android:text="Register"
         app:cornerRadius="12dp" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -58,16 +58,16 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter_medium"
             android:maxLines="1"
-            android:text="Don't have an account? "
+            android:text="Already have an account? "
             android:textColor="@android:color/darker_gray" />
 
         <TextView
-            android:id="@+id/tv_register"
+            android:id="@+id/tv_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter_semibold"
             android:maxLines="1"
-            android:text="Register here."
+            android:text="Login."
             android:textColor="@android:color/black" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
