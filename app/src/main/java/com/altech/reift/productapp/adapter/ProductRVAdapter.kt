@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.altech.reift.core.domain.model.Product
-import com.altech.reift.productapp.databinding.FragmentProductBinding
 import com.altech.reift.productapp.databinding.ItemProductBinding
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy

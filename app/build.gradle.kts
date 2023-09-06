@@ -51,6 +51,11 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
+    // RxJava
+    implementation ("io.reactivex.rxjava3:rxjava:3.0.0")
+    implementation("io.reactivex.rxjava3:rxandroid:3.0.0")
+    implementation("com.squareup.retrofit2:adapter-rxjava3:2.9.0")
+
     // Koin
     implementation("org.koin:koin-core:2.1.6")
     implementation("org.koin:koin-android:2.1.6")
@@ -58,4 +63,7 @@ dependencies {
 
     // Glide
     implementation("com.github.bumptech.glide:glide:4.14.2")
+
+    // LiveData ReactiveStreams
+    implementation("androidx.lifecycle:lifecycle-reactivestreams-ktx:2.5.1")
 }

@@ -1,6 +1,8 @@
 package com.altech.reift.core.domain.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 data class Product(
     val discountPercentage: Double,
@@ -14,7 +16,8 @@ data class Product(
     val stock: Int,
     val category: String,
 ) {
-    enum class Category {
+    @Parcelize
+    enum class Category: Parcelable {
         SMARTPHONES,
         LAPTOPS,
         FRAGRANCES,

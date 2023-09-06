@@ -27,4 +27,9 @@ class MainActivity : AppCompatActivity() {
             }.attach()
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 }

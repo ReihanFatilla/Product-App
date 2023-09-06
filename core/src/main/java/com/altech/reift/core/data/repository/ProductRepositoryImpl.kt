@@ -1,5 +1,6 @@
 package com.altech.reift.core.data.repository
 
+import android.util.Log
 import com.altech.reift.core.data.remote.RemoteDataSource
 import com.altech.reift.core.domain.model.Product
 import com.altech.reift.core.domain.repository.ProductRepository

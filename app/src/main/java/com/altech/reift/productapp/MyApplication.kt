@@ -5,6 +5,7 @@ import com.altech.reift.core.di.dataSourceModule
 import com.altech.reift.core.di.networkModule
 import com.altech.reift.core.di.repositoryModule
 import com.altech.reift.productapp.di.useCaseModule
+import com.altech.reift.productapp.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -21,7 +22,8 @@ class MyApplication : Application(){
                     useCaseModule,
                     repositoryModule,
                     networkModule,
-                    dataSourceModule
+                    dataSourceModule,
+                    viewModelModule
                 )
             )
         }
