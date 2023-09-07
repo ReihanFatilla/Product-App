@@ -18,7 +18,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class AuthActivity(val type: Type): AppCompatActivity() {
+class RegisterActivity: AuthActivity(Type.REGISTER)
+class LoginActivity: AuthActivity(Type.LOGIN)
+
+open class AuthActivity(val type: Type): AppCompatActivity() {
 
     private var _binding: ActivityRegisterBinding? = null
 
@@ -66,7 +69,11 @@ class AuthActivity(val type: Type): AppCompatActivity() {
             }
             tvAuth.text = if(type == Type.LOGIN) "Register." else "Login."
             tvAuth.setOnClickListener {
-                startActivity(Intent(this@AuthActivity, LoginActivity::class.java))
+                if(type == Type.LOGIN) {
+                    startActivity(Intent(this@AuthActivity, RegisterActivity::class.java))
+                } else {
+                    startActivity(Intent(this@AuthActivity, LoginActivity::class.java))
+                }
                 finish()
             }
             btnGoogle.setOnClickListener {
@@ -78,7 +85,6 @@ class AuthActivity(val type: Type): AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(requestCode==10001){
-            Toast.makeText(this@RegisterActivity, "Nyampe sini", Toast.LENGTH_SHORT).show()
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             val account = task.getResult(ApiException::class.java)
             val credential = GoogleAuthProvider.getCredential(account.idToken,null)
