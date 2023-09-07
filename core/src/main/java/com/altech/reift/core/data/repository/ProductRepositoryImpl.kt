@@ -10,6 +10,9 @@ import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
 class ProductRepositoryImpl(val remoteDataSource: RemoteDataSource) : ProductRepository {
+
+    val auth = remoteDataSource.firebaseAuth
+
     override fun getProducts(category: Product.Category): Flowable<List<Product>> {
         return remoteDataSource.getProductsByCategory(category).map {
             it.map()
@@ -17,11 +20,15 @@ class ProductRepositoryImpl(val remoteDataSource: RemoteDataSource) : ProductRep
     }
 
     override fun isAnonymous(): Boolean {
-        return remoteDataSource.firebaseAuth.currentUser?.isAnonymous ?: true
+        return auth.currentUser?.isAnonymous ?: true
+    }
+
+    override fun getUserDisplay(): String {
+        return auth.currentUser?.displayName ?: auth.currentUser?.email ?: "User"
     }
 
     override fun logout() {
-        remoteDataSource.firebaseAuth.signOut()
+        auth.signOut()
     }
 
 }

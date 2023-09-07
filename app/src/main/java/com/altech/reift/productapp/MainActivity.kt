@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpView() {
         binding.apply {
+            tvDisplay.text = viewModel.getUserDisplay()
             btnLogout.setOnClickListener {
                 viewModel.logout()
                 startActivity(Intent(this@MainActivity, AuthActivity.LoginActivity::class.java))

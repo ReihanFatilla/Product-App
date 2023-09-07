@@ -13,6 +13,10 @@ class ProductInteractor(val productRepository: ProductRepository): ProductUseCas
         return productRepository.isAnonymous()
     }
 
+    override fun getUserDisplay(): String {
+        return productRepository.getUserDisplay()
+    }
+
     override fun logout() {
         productRepository.logout()
     }

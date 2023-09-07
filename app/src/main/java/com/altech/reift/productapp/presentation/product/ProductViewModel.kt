@@ -13,8 +13,12 @@ class ProductViewModel(val productUseCase: ProductUseCase): ViewModel() {
     fun logout() {
         productUseCase.logout()
     }
-    suspend fun isAnonymous(): Boolean {
+    fun isAnonymous(): Boolean {
         return productUseCase.isAnonymous()
+    }
+
+    fun getUserDisplay(): String{
+        return productUseCase.getUserDisplay()
     }
 
     fun getProducts(category: Product.Category){
