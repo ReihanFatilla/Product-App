@@ -15,7 +15,7 @@ import com.altech.reift.productapp.adapter.ProductRVAdapter
 import com.altech.reift.productapp.adapter.ProductVPAdapter
 import com.altech.reift.productapp.databinding.ActivityMainBinding
 import com.altech.reift.productapp.databinding.FragmentProductBinding
-import com.altech.reift.productapp.presentation.auth.login.LoginActivity
+import com.altech.reift.productapp.presentation.auth.AuthActivity
 import com.altech.reift.productapp.presentation.detail.DetailActivity
 import com.reift.toasting.Toasting
 import kotlinx.coroutines.CoroutineScope
@@ -62,7 +62,7 @@ class ProductFragment : Fragment() {
                     .setTitleText("Please Sign In!")
                     .setOnButtonClick {
                         viewModel.logout()
-                        startActivity(Intent(requireActivity(), LoginActivity::class.java))
+                        startActivity(Intent(requireActivity(), AuthActivity.LoginActivity::class.java))
                         requireActivity().finish()
                     }
                     .show(requireActivity().supportFragmentManager)

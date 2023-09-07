@@ -7,7 +7,7 @@ import com.altech.reift.core.domain.model.Product
 import com.altech.reift.core.utils.Utils.toWordCase
 import com.altech.reift.productapp.adapter.ProductVPAdapter
 import com.altech.reift.productapp.databinding.ActivityMainBinding
-import com.altech.reift.productapp.presentation.auth.login.LoginActivity
+import com.altech.reift.productapp.presentation.auth.AuthActivity
 import com.altech.reift.productapp.presentation.product.ProductViewModel
 import com.google.android.material.tabs.TabLayoutMediator
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         binding.apply {
             btnLogout.setOnClickListener {
                 viewModel.logout()
-                startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+                startActivity(Intent(this@MainActivity, AuthActivity.LoginActivity::class.java))
                 finish()
             }
         }

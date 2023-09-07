@@ -1,5 +1,7 @@
 package com.altech.reift.core.data.repository
 
+import android.content.Intent
+import android.widget.Toast
 import com.altech.reift.core.data.remote.RemoteDataSource
 import com.altech.reift.core.domain.model.AuthResult
 import com.altech.reift.core.domain.repository.AuthRepository
@@ -36,7 +38,16 @@ class AuthRepositoryImpl(val remoteDataSource: RemoteDataSource): AuthRepository
                 }
             }
             is AuthType.Google -> {
-                AuthResult(success = false, message = null)
+                suspendCoroutine {continuation ->
+                    auth.signInWithCredential(type.credential)
+                        .addOnCompleteListener{
+                            continuation.resume(AuthResult(true, "Success Sign In with Google Account"))
+                        }
+                        .addOnFailureListener {exception ->
+                            continuation.resume(AuthResult(false, exception.message))
+                        }
+                    AuthResult(success = false, message = null)
+                }
             }
         }
     }
@@ -66,7 +77,16 @@ class AuthRepositoryImpl(val remoteDataSource: RemoteDataSource): AuthRepository
                 }
             }
             is AuthType.Google -> {
+                suspendCoroutine {continuation ->
+                    auth.signInWithCredential(type.credential)
+                        .addOnCompleteListener{
+                            continuation.resume(AuthResult(true, "Success Sign In with Google Account"))
+                        }
+                        .addOnFailureListener {exception ->
+                            continuation.resume(AuthResult(false, exception.message))
+                        }
                 AuthResult(success = false, message = null)
+                }
             }
         }
     }
