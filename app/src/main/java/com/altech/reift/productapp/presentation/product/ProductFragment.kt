@@ -17,6 +17,7 @@ import com.altech.reift.productapp.databinding.ActivityMainBinding
 import com.altech.reift.productapp.databinding.FragmentProductBinding
 import com.altech.reift.productapp.presentation.auth.AuthActivity
 import com.altech.reift.productapp.presentation.detail.DetailActivity
+import com.altech.reift.productapp.utils.NotificationWorker
 import com.reift.toasting.Toasting
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -50,6 +51,7 @@ class ProductFragment : Fragment() {
         viewModel.productsLiveData.observe(viewLifecycleOwner) { list ->
             mAdapter.setProduct(list)
             binding.rvProduct.adapter = mAdapter
+            NotificationWorker.notificationProduct = list.random()
         }
     }
 

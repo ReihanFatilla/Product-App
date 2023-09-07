@@ -29,7 +29,8 @@ class NotificationWorker(context: Context, workerParameters: WorkerParameters) :
         val NOTIFICATION_ID = 0
 
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setContentTitle(notificationProduct.title)
+            .setSmallIcon(R.drawable.ic_product)
+            .setContentTitle("See The Details Of${notificationProduct.title}!")
             .setContentText(notificationProduct.description)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setVibrate(LongArray(1))
@@ -44,7 +45,7 @@ class NotificationWorker(context: Context, workerParameters: WorkerParameters) :
     }
 
     companion object {
-        val notificationProduct = Product(
+        var notificationProduct = Product(
             id = 1,
             title = "iPhone 9",
             description = "An apple mobile which is nothing like apple",
