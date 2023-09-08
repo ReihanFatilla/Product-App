@@ -1,9 +1,24 @@
 package com.altech.reift.productapp
 
+import android.Manifest
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+import androidx.work.Constraints
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.NetworkType
 import androidx.work.PeriodicWorkRequest
+import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.altech.reift.core.domain.model.Product
 import com.altech.reift.core.utils.Utils.toWordCase
@@ -27,17 +42,8 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        initWorkManager()
         setUpView()
         setUpViewPager()
-    }
-
-    private fun initWorkManager() {
-        PeriodicWorkRequest.Builder(
-            NotificationWorker::class.java, 15, TimeUnit.MINUTES
-        ).build().also { periodicWork ->
-            WorkManager.getInstance(this).enqueue(periodicWork)
-        }
     }
 
     private fun setUpView() {
